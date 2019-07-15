@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		848FFF1B22DB6D7D006C8435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF1A22DB6D7D006C8435 /* AppDelegate.swift */; };
-		848FFF1D22DB6D7D006C8435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF1C22DB6D7D006C8435 /* ViewController.swift */; };
+		848FFF1D22DB6D7D006C8435 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF1C22DB6D7D006C8435 /* HomeViewController.swift */; };
 		848FFF2222DB6D7E006C8435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848FFF2122DB6D7E006C8435 /* Assets.xcassets */; };
 		848FFF2522DB6D7E006C8435 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848FFF2322DB6D7E006C8435 /* LaunchScreen.storyboard */; };
 		848FFF2D22DB6E4A006C8435 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF2C22DB6E4A006C8435 /* UIView+Layout.swift */; };
 		848FFF2F22DB78C0006C8435 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF2E22DB78C0006C8435 /* CardView.swift */; };
 		848FFF3222DCB853006C8435 /* TopStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF3122DCB853006C8435 /* TopStackView.swift */; };
 		848FFF3422DCBACA006C8435 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF3322DCBACA006C8435 /* BottomStackView.swift */; };
+		848FFF3722DCD01D006C8435 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF3622DCD01D006C8435 /* User.swift */; };
+		848FFF3B22DCD4E1006C8435 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FFF3A22DCD4E1006C8435 /* CardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		848FFF1722DB6D7D006C8435 /* TinderClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848FFF1A22DB6D7D006C8435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		848FFF1C22DB6D7D006C8435 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		848FFF1C22DB6D7D006C8435 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		848FFF2122DB6D7E006C8435 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		848FFF2422DB6D7E006C8435 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		848FFF2622DB6D7E006C8435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		848FFF2E22DB78C0006C8435 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		848FFF3122DCB853006C8435 /* TopStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStackView.swift; sourceTree = "<group>"; };
 		848FFF3322DCBACA006C8435 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
+		848FFF3622DCD01D006C8435 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		848FFF3A22DCD4E1006C8435 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,12 @@
 		848FFF1922DB6D7D006C8435 /* TinderClone */ = {
 			isa = PBXGroup;
 			children = (
+				848FFF3922DCD4D4006C8435 /* ViewModels */,
 				848FFF1A22DB6D7D006C8435 /* AppDelegate.swift */,
 				848FFF3022DCB838006C8435 /* Helpers */,
-				848FFF3122DCB853006C8435 /* TopStackView.swift */,
-				848FFF3322DCBACA006C8435 /* BottomStackView.swift */,
-				848FFF1C22DB6D7D006C8435 /* ViewController.swift */,
-				848FFF2E22DB78C0006C8435 /* CardView.swift */,
+				848FFF3522DCD013006C8435 /* Model */,
+				848FFF3822DCD2A5006C8435 /* Views */,
+				848FFF1C22DB6D7D006C8435 /* HomeViewController.swift */,
 				848FFF2122DB6D7E006C8435 /* Assets.xcassets */,
 				848FFF2322DB6D7E006C8435 /* LaunchScreen.storyboard */,
 				848FFF2622DB6D7E006C8435 /* Info.plist */,
@@ -79,6 +83,32 @@
 				848FFF2C22DB6E4A006C8435 /* UIView+Layout.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		848FFF3522DCD013006C8435 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				848FFF3622DCD01D006C8435 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		848FFF3822DCD2A5006C8435 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				848FFF3122DCB853006C8435 /* TopStackView.swift */,
+				848FFF3322DCBACA006C8435 /* BottomStackView.swift */,
+				848FFF2E22DB78C0006C8435 /* CardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		848FFF3922DCD4D4006C8435 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				848FFF3A22DCD4E1006C8435 /* CardViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,12 +181,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848FFF1D22DB6D7D006C8435 /* ViewController.swift in Sources */,
+				848FFF1D22DB6D7D006C8435 /* HomeViewController.swift in Sources */,
 				848FFF1B22DB6D7D006C8435 /* AppDelegate.swift in Sources */,
 				848FFF2F22DB78C0006C8435 /* CardView.swift in Sources */,
 				848FFF3222DCB853006C8435 /* TopStackView.swift in Sources */,
+				848FFF3B22DCD4E1006C8435 /* CardViewModel.swift in Sources */,
 				848FFF2D22DB6E4A006C8435 /* UIView+Layout.swift in Sources */,
 				848FFF3422DCBACA006C8435 /* BottomStackView.swift in Sources */,
+				848FFF3722DCD01D006C8435 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
