@@ -12,31 +12,31 @@ class BottomStackView: UIStackView {
     
     let firstButton: UIButton = {
         let b = UIButton(type: .system)
-        b.setTitle("<-", for: .normal)
+        b.setTitle("⏪", for: .normal)
         return b
     }()
     
     let secondButton: UIButton = {
         let b = UIButton(type: .system)
-        b.setTitle("X", for: .normal)
+        b.setTitle("❌", for: .normal)
         return b
     }()
     
     let thirdButton: UIButton = {
         let b = UIButton(type: .system)
-        b.setTitle("*", for: .normal)
+        b.setTitle("⭐️", for: .normal)
         return b
     }()
     
     let fourthButton: UIButton = {
         let b = UIButton(type: .system)
-        b.setTitle("<3", for: .normal)
+        b.setTitle("♥️", for: .normal)
         return b
     }()
     
     let fifthButton: UIButton = {
         let b = UIButton(type: .system)
-        b.setTitle("/", for: .normal)
+        b.setTitle("⚡️", for: .normal)
         return b
     }()
     
