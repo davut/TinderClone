@@ -9,7 +9,7 @@
 import UIKit
 
 struct CardViewModel {
-    var imageName: String
+    var imageNames: [String]
     var attributedString: NSAttributedString
     var textAlignment: NSTextAlignment
 }

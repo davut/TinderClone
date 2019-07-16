@@ -10,11 +10,12 @@ import UIKit
 
 struct Advertiser: ProducesCardViewModel {
     
-    let title, subtitle, imageName: String
+    let title, subtitle: String
+    let imageNames: [String]
     
     func toCardViewModel() -> CardViewModel {
         let attributedText = NSMutableAttributedString(string: title, attributes: [.font: UIFont.systemFont(ofSize: 32, weight: .heavy)])
         attributedText.append(NSAttributedString(string: "\n\(subtitle)", attributes: [.font: UIFont.systemFont(ofSize: 26, weight: .bold)]))
-        return CardViewModel(imageName: imageName, attributedString: attributedText, textAlignment: .center)
+        return CardViewModel(imageNames: imageNames, attributedString: attributedText, textAlignment: .center)
     }
 }
