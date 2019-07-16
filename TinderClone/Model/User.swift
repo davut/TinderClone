@@ -8,7 +8,11 @@
 
 import UIKit
 
-struct User {
+protocol ProducesCardViewModel {
+    func toCardViewModel() -> CardViewModel
+}
+
+struct User: ProducesCardViewModel {
     let name, profession, imageName: String
     let age: Int
     

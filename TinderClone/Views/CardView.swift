@@ -10,39 +10,71 @@ import UIKit
 
 class CardView: UIView {
     
+    var cardViewModel: CardViewModel! {
+        didSet {
+            imageView.image = UIImage(named: cardViewModel.imageName)
+            infoLabel.attributedText = cardViewModel.attributedString
+            infoLabel.textAlignment = cardViewModel.textAlignment
+        }
+    }
+    
     private let treshold: CGFloat = 100
     
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.layer.cornerRadius = 8
         iv.clipsToBounds = true
-        iv.image = #imageLiteral(resourceName: "daria-litvinova")
         iv.contentMode = .scaleAspectFill
         return iv
     }()
     
-    let infoLabel: UILabel = {
+    private let infoLabel: UILabel = {
         let label = UILabel()
-        label.text = "Bello 18\nMinion"
         label.textColor = .white
         label.numberOfLines = 0
         return label
     }()
     
+    let gradientLayer = CAGradientLayer()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(imageView)
-        imageView.fillSuperview()
-        
-        addSubview(infoLabel)
-        infoLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+        setupLayout()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         addGestureRecognizer(panGesture)
     }
     
+    fileprivate func setupLayout() {
+        layer.cornerRadius = 10
+        clipsToBounds = true
+        
+        addSubview(imageView)
+        imageView.fillSuperview()
+        
+        setupGradientLayer()
+        
+        addSubview(infoLabel)
+        infoLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+    }
+    
+    private func setupGradientLayer() {
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer.locations = [0.6, 1.1]
+        
+        layer.addSublayer(gradientLayer)
+    }
+    
+    override func layoutSubviews() {
+        gradientLayer.frame = self.frame
+    }
+    
     @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {
+        case .began:
+            superview?.subviews.forEach({ (subview) in
+                subview.layer.removeAllAnimations()
+            })
         case .changed:
             handleChanged(gesture)
         case .ended:

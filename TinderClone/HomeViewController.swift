@@ -21,10 +21,16 @@ class HomeViewController: UIViewController {
         return v
     }()
     
-    let cardViewModels = [
-        User(name: "Sara", profession: "Singer", imageName: "daria-litvinova", age: 20).toCardViewModel(),
-        User(name: "Jane", profession: "Student", imageName: "nik-macmillan", age: 19).toCardViewModel()
-    ]
+    let cardViewModels: [CardViewModel] = {
+        let cardViewModels = [
+        User(name: "Sara", profession: "Singer", imageName: "daria-litvinova", age: 20),
+        Advertiser(title: "Collectoji", subtitle: "By Davut Jepbarov", imageName: "2"),
+        User(name: "Jane", profession: "Student", imageName: "nik-macmillan", age: 19)
+            ] as [ProducesCardViewModel]
+        
+        let producers = cardViewModels.map { $0.toCardViewModel() }
+        return producers
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +41,7 @@ class HomeViewController: UIViewController {
     func setupDummyCard() {
         cardViewModels.forEach { (cardViewModel) in
             let cardView = CardView(frame: .zero)
-            cardView.imageView.image = UIImage(named: cardViewModel.imageName)
-            cardView.infoLabel.attributedText = cardViewModel.attributedString
+            cardView.cardViewModel = cardViewModel
             cardDeckView.addSubview(cardView)
             cardView.fillSuperview()
         }
