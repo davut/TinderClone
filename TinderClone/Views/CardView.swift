@@ -21,11 +21,25 @@ class CardView: UIView {
                 (0..<cardViewModel.imageNames.count).forEach { (_) in
                     let view = UIView()
                     view.layer.cornerRadius = 2
-                    view.backgroundColor = UIColor.init(white: 0, alpha: 0.1)
+                    view.backgroundColor = barDeselectedColor
                     topBarStackView.addArrangedSubview(view)
                 }
                 topBarStackView.arrangedSubviews.first?.backgroundColor = .white
+                
+                setupImageIndexObserver()
             }
+        }
+    }
+    
+    private var barDeselectedColor = UIColor.init(white: 0, alpha: 0.1)
+    
+    private func setupImageIndexObserver() {
+        cardViewModel.imageIndexObserver = { [weak self] (index, image) in
+            self?.topBarStackView.arrangedSubviews.forEach({ (v) in
+                v.backgroundColor = self?.barDeselectedColor
+            })
+            self?.topBarStackView.arrangedSubviews[index].backgroundColor = .white
+            self?.imageView.image = image
         }
     }
     
@@ -47,7 +61,7 @@ class CardView: UIView {
     
     private let gradientLayer = CAGradientLayer()
     
-    let topBarStackView = UIStackView()
+    private let topBarStackView = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,15 +79,10 @@ class CardView: UIView {
         let tapLocation = gesture.location(in: nil)
         let shouldAdvance = tapLocation.x > frame.width / 2 ? true : false
         if shouldAdvance {
-            imageIndex = min(imageIndex + 1, cardViewModel.imageNames.count - 1)
+            cardViewModel.goToNextPhoto()
         } else {
-            imageIndex = max(0, imageIndex - 1)
+            cardViewModel.goToPreviousPhoto()
         }
-        imageView.image = UIImage(named: cardViewModel.imageNames[imageIndex])
-        topBarStackView.arrangedSubviews.forEach { (v) in
-            v.backgroundColor = UIColor.init(white: 0, alpha: 0.1)
-        }
-        topBarStackView.arrangedSubviews[imageIndex].backgroundColor = .white
     }
     
     fileprivate func setupLayout() {
